@@ -5,14 +5,14 @@ epicsEnvSet("EVR", "$(DEVICE)")
 epicsEnvSet("CHIC_SYS", "LabS-Utgard-VIP:")
 epicsEnvSet("CHOP_DRV", "Chop-Drv-02")
 epicsEnvSet("CHIC_DEV", "TS-$(DEVICE)")
-
+epicsEnvSet("MRF_HW_DB", "evr-cpci-230.db")
 epicsEnvSet("E3_MODULES", "/epics/iocs/e3")
 epicsEnvSet("EPICS_CMDS", "/epics/iocs/cmds")
 
 ######## Temporary until chopper group ###########
 ######## changes PV names              ###########
-epicsEnvSet("NCG_SYS", "LabS-VIP:")
-epicsEnvSet("NCG_DRV", "Chop-Drv-01:")
+#epicsEnvSet("NCG_SYS", "LabS-VIP:")
+#epicsEnvSet("NCG_DRV", "Chop-Drv-01:")
 ##################################################
 
 < "$(EPICS_CMDS)/mrfioc2-common/7_st.evr.cmd"
