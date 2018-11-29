@@ -17,6 +17,12 @@ epicsEnvSet("NCG_DRV", "Chop-Drv-01:")
 
 < "$(EPICS_CMDS)/mrfioc2-common/7_st.evr.cmd"
 
+iocInit()
+
+# Set the frequency that the EVR expects from the EVG for the event clock
+dbpf $(SYS)-$(DEVICE):Time-Clock-SP 88.0525
+
+
 # Set delay compensation target. This is required even when delay compensation
 # is disabled to avoid occasionally corrupting timestamps.
 #dbpf $(SYS)-$(DEVICE):DC-Tgt-SP 70

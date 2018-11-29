@@ -5,7 +5,7 @@ epicsEnvSet("EVR", "$(DEVICE)")
 epicsEnvSet("CHIC_SYS", "LabS-Utgard-VIP:")
 epicsEnvSet("CHOP_DRV", "Chop-Drv-02")
 epicsEnvSet("CHIC_DEV", "TS-$(DEVICE)")
-epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-ess.db")
+epicsEnvSet("MRF_HW_DB", "evr-cpci-230.db")
 epicsEnvSet("E3_MODULES", "/epics/iocs/e3")
 epicsEnvSet("EPICS_CMDS", "/epics/iocs/cmds")
 
@@ -16,6 +16,12 @@ epicsEnvSet("NCG_DRV", "Chop-Drv-01:")
 ##################################################
 
 < "$(EPICS_CMDS)/mrfioc2-common/st.evr.cmd"
+
+iocInit()
+
+# Set the frequency that the EVR expects from the EVG for the event clock
+dbpf $(SYS)-$(DEVICE):Time-Clock-SP 88.0525
+
 
 # Set delay compensation target. This is required even when delay compensation
 # is disabled to avoid occasionally corrupting timestamps.
